@@ -1,0 +1,6 @@
+{
+	"name": "sqlIntegration",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

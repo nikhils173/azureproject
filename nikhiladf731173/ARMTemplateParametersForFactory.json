@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "nikhiladf731173"
+		},
+		"azureprojectdbls_password": {
+			"value": ""
+		},
+		"datalake_accountKey": {
+			"value": ""
+		},
+		"linkedService_StorageAccount_accountKey": {
+			"value": ""
+		},
+		"linkedserviceDL_accountKey": {
+			"value": ""
+		},
+		"azureprojectdbls_properties_typeProperties_server": {
+			"value": "databasenikhil.database.windows.net"
+		},
+		"azureprojectdbls_properties_typeProperties_database": {
+			"value": "databasenikhil"
+		},
+		"azureprojectdbls_properties_typeProperties_userName": {
+			"value": "adminnikhil"
+		},
+		"datalake_properties_typeProperties_url": {
+			"value": "https://cloudlearning7311.dfs.core.windows.net/"
+		},
+		"linkedService_StorageAccount_properties_typeProperties_url": {
+			"value": "https://cloudlearning7311.dfs.core.windows.net/"
+		},
+		"linked_git_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"linkedserviceDL_properties_typeProperties_url": {
+			"value": "https://cloudlearning7311.dfs.core.windows.net/"
+		},
+		"Managertrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/1d2d351f-9164-4277-bd28-710ac09243d3/resourceGroups/cloudlearning/providers/Microsoft.Storage/storageAccounts/cloudlearning7311"
+		}
+	}
+}

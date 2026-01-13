@@ -1,0 +1,146 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "nikhiladf731173"
+		},
+		"azureprojectdbls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'azureprojectdbls'"
+		},
+		"datalake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'datalake'"
+		},
+		"linkedService_StorageAccount_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkedService_StorageAccount'"
+		},
+		"linkedserviceDL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkedserviceDL'"
+		},
+		"azureprojectdbls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "databasenikhil.database.windows.net"
+		},
+		"azureprojectdbls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "databasenikhil"
+		},
+		"azureprojectdbls_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminnikhil"
+		},
+		"datalake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cloudlearning7311.dfs.core.windows.net/"
+		},
+		"linkedService_StorageAccount_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cloudlearning7311.dfs.core.windows.net/"
+		},
+		"linked_git_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"linkedserviceDL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cloudlearning7311.dfs.core.windows.net/"
+		},
+		"Managertrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1d2d351f-9164-4277-bd28-710ac09243d3/resourceGroups/cloudlearning/providers/Microsoft.Storage/storageAccounts/cloudlearning7311"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "nikhiladf731173_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"azureprojectdbls_password": {
+						"value": "[parameters('azureprojectdbls_password')]"
+					},
+					"datalake_accountKey": {
+						"value": "[parameters('datalake_accountKey')]"
+					},
+					"linkedService_StorageAccount_accountKey": {
+						"value": "[parameters('linkedService_StorageAccount_accountKey')]"
+					},
+					"linkedserviceDL_accountKey": {
+						"value": "[parameters('linkedserviceDL_accountKey')]"
+					},
+					"azureprojectdbls_properties_typeProperties_server": {
+						"value": "[parameters('azureprojectdbls_properties_typeProperties_server')]"
+					},
+					"azureprojectdbls_properties_typeProperties_database": {
+						"value": "[parameters('azureprojectdbls_properties_typeProperties_database')]"
+					},
+					"azureprojectdbls_properties_typeProperties_userName": {
+						"value": "[parameters('azureprojectdbls_properties_typeProperties_userName')]"
+					},
+					"datalake_properties_typeProperties_url": {
+						"value": "[parameters('datalake_properties_typeProperties_url')]"
+					},
+					"linkedService_StorageAccount_properties_typeProperties_url": {
+						"value": "[parameters('linkedService_StorageAccount_properties_typeProperties_url')]"
+					},
+					"linked_git_properties_typeProperties_url": {
+						"value": "[parameters('linked_git_properties_typeProperties_url')]"
+					},
+					"linkedserviceDL_properties_typeProperties_url": {
+						"value": "[parameters('linkedserviceDL_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "nikhiladf731173_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Managertrigger_properties_typeProperties_scope": {
+						"value": "[parameters('Managertrigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'nikhiladf731173_ArmTemplate_0')]"
+			]
+		}
+	]
+}
